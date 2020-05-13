@@ -37,6 +37,7 @@ class SimilarMovieActivity : AppCompatActivity() {
         setContentView(R.layout.activity_similar)
         val extras = intent.extras
 
+        initInjector()
         similarViewModel = viewModelProvider(viewModelFactory)
 
         if (extras != null) {
@@ -64,5 +65,14 @@ class SimilarMovieActivity : AppCompatActivity() {
         similarViewModel.similar.observe(this, Observer {
 
         })
+    }
+
+    private fun initInjector() {
+        DaggerMainComponent
+            .builder()
+            .roomModule(RoomModule(application))
+            .movieModule(MovieModule())
+            .build()
+            .injectSimilar(this)
     }
 }

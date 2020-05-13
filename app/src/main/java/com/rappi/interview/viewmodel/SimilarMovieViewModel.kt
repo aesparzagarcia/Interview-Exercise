@@ -37,7 +37,16 @@ class SimilarMovieViewModel @Inject constructor(
     }
 
     override fun getSimilarMoview(idMovie: Int) {
-
+        subscribe(useCase.getSimilarMovies(idMovie)
+            .subscribeOn(schedulerProvider.io())
+            .observeOn(schedulerProvider.ui())
+            .doOnSubscribe { showLoading() }
+            .doOnError { onErrorGetSimilarMovie(it) }
+            .subscribe {
+                hideLoading()
+                _similar.postValue(it)
+            }
+        )
     }
 
     private fun showLoading() {

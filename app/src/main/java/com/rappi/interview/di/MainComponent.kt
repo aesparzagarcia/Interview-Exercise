@@ -22,4 +22,5 @@ interface MainComponent {
     fun injectMain(activity: MainActivity)
     fun injectDetail(activity: DetailMovieActivity)
     fun injectFavorite(activity: FavoriteMovieActivity)
+    fun injectSimilar(activity: SimilarMovieActivity)
 }
