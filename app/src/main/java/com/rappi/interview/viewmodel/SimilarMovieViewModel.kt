@@ -19,10 +19,6 @@ class SimilarMovieViewModel @Inject constructor(
     private val schedulerProvider: SchedulerProvider
 ) : BaseViewModel(), SimilarMovieContract {
 
-    private val _similar = MutableLiveData<ResponseBody>()
-    val similar: LiveData<ResponseBody>
-        get() = _similar
-
     private val _state = MutableLiveData<LoaderState>()
     val state: LiveData<LoaderState>
         get() = _state
@@ -37,16 +33,7 @@ class SimilarMovieViewModel @Inject constructor(
     }
 
     override fun getSimilarMoview(idMovie: Int) {
-        subscribe(useCase.getSimilarMovies(idMovie)
-            .subscribeOn(schedulerProvider.io())
-            .observeOn(schedulerProvider.ui())
-            .doOnSubscribe { showLoading() }
-            .doOnError { onErrorGetSimilarMovie(it) }
-            .subscribe {
-                hideLoading()
-                _similar.postValue(it)
-            }
-        )
+
     }
 
     private fun showLoading() {
