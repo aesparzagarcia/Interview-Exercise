@@ -34,9 +34,4 @@ abstract class MovieViewModelModule {
     @IntoMap
     @ViewModelKey(FavoriteMovieViewModel::class)
     internal abstract fun bindFavoriteMovieViewModel(viewModel: FavoriteMovieViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(SimilarMovieViewModel::class)
-    internal abstract fun bindSimilarMovieViewModel(viewModel: SimilarMovieViewModel): ViewModel
 }
