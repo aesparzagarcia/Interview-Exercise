@@ -4,6 +4,7 @@ import com.rappi.interview.data.entity.Movie
 import com.rappi.interview.data.entity.ReviewResponse
 import io.reactivex.Completable
 import io.reactivex.Flowable
+import okhttp3.ResponseBody
 
 abstract class UseCase<T> {
     abstract fun getPopularMovie(): T
@@ -15,4 +16,5 @@ abstract class UseCase<T> {
     abstract fun deleteFavoritesMovie(movie: Movie): Completable
     abstract fun insertFavoritesMovie(movie: Movie): Completable
     abstract fun getReviewMovies(idMovie: Int): Flowable<ReviewResponse>
+    abstract fun getSimilarMovies(idMovie: Int): Flowable<ResponseBody>
 }

@@ -8,6 +8,7 @@ import com.rappi.interview.di.MovieScope
 import com.rappi.interview.viewmodel.DetailMovieViewModel
 import com.rappi.interview.viewmodel.FavoriteMovieViewModel
 import com.rappi.interview.viewmodel.MovieViewModel
+import com.rappi.interview.viewmodel.SimilarMovieViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -33,4 +34,9 @@ abstract class MovieViewModelModule {
     @IntoMap
     @ViewModelKey(FavoriteMovieViewModel::class)
     internal abstract fun bindFavoriteMovieViewModel(viewModel: FavoriteMovieViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SimilarMovieViewModel::class)
+    internal abstract fun bindSimilarMovieViewModel(viewModel: SimilarMovieViewModel): ViewModel
 }

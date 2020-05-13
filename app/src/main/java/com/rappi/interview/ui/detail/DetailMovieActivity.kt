@@ -21,6 +21,7 @@ import com.rappi.interview.data.entity.Review
 import com.rappi.interview.di.DaggerMainComponent
 import com.rappi.interview.di.module.MovieModule
 import com.rappi.interview.di.module.RoomModule
+import com.rappi.interview.ui.similar.SimilarMovieActivity
 import com.rappi.interview.viewmodel.DetailMovieViewModel
 import com.rappi.interview.viewmodel.FavoriteMovieViewModel
 import kotlinx.android.synthetic.main.activity_detail_movie.*
@@ -88,6 +89,9 @@ class DetailMovieActivity : AppCompatActivity() {
                 favoriteViewModel.insertFavoriteMovie(movie)
             }
             favoriteViewModel.getAllFavoriteMovie()
+        }
+        button_similar.setOnClickListener {
+            startActivity(SimilarMovieActivity.generateIntent(this, movie.id))
         }
     }
 

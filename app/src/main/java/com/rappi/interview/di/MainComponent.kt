@@ -6,6 +6,7 @@ import com.rappi.interview.di.module.MovieViewModelModule
 import com.rappi.interview.di.module.RoomModule
 import com.rappi.interview.ui.detail.DetailMovieActivity
 import com.rappi.interview.ui.favorite.FavoriteMovieActivity
+import com.rappi.interview.ui.similar.SimilarMovieActivity
 import dagger.Component
 
 
@@ -21,4 +22,5 @@ interface MainComponent {
     fun injectMain(activity: MainActivity)
     fun injectDetail(activity: DetailMovieActivity)
     fun injectFavorite(activity: FavoriteMovieActivity)
+    fun injectSimilar(activity: SimilarMovieActivity)
 }

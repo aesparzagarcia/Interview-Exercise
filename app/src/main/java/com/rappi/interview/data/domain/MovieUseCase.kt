@@ -7,6 +7,7 @@ import com.rappi.interview.data.entity.ReviewResponse
 import com.rappi.interview.data.repository.MovieRepository
 import io.reactivex.Completable
 import io.reactivex.Flowable
+import okhttp3.ResponseBody
 import javax.inject.Inject
 
 open class MovieUseCase @Inject constructor(
@@ -47,6 +48,10 @@ open class MovieUseCase @Inject constructor(
 
     override fun getReviewMovies(idMovie: Int): Flowable<ReviewResponse> {
         return repository.getAllReviewMovie(idMovie)
+    }
+
+    override fun getSimilarMovies(idMovie: Int): Flowable<ResponseBody> {
+        return repository.getSimilarMovie(idMovie)
     }
 
 }
